@@ -1,0 +1,200 @@
+# Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: NGeneBio Help Center
+site_url: https://squidfunk.github.io/mkdocs-material/
+site_author: Martin Donath
+site_description: >-
+  NGeneBio ("N-gen-bio") makes it easy to access your unique genetic information, so you can take control of your health
+
+# Repository
+repo_name: ngenebio/hgvs
+repo_url: https://github.com/ngenebio/hgvs
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2021 NGeneBio
+
+# Configuration
+theme:
+  name: null
+  custom_dir: material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: kr
+  features:
+    # - navigation.instant
+    # - navigation.sections
+    - navigation.tabs
+  palette:
+    scheme: slate
+    primary: slate
+    accent: slate
+  font:
+    text: Noto Sans KR
+    code: Monaco
+  favicon: assets/images/monero.svg
+  icon:
+    logo: fontawesome/brands/monero
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        extensions/admonition.md: reference/admonitions.md
+        extensions/codehilite.md: reference/code-blocks.md
+        extensions/footnotes.md: reference/footnotes.md
+        extensions/metadata.md: reference/meta-tags.md
+        extensions/permalinks.md: setup/setting-up-navigation.md #permalink
+        extensions/pymdown.md: reference/admonitions.md
+        plugins/revision-date.md: setup/adding-a-git-repository.md #revision-date
+        plugins/search.md: setup/setting-up-site-search.md
+        releases/4.md: upgrading.md #upgrading-from-4x-to-5x
+        releases/5.md: upgrading.md #upgrading-from-3x-to-4x
+        releases/changelog.md: changelog.md
+        setup/adding-social-links.md: setup/setting-up-the-footer.md
+        sponsorship.md: insiders.md
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ngenebio
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ngenebio
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/ngenebio/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCPwdgiY5UjyQsz6nlTKBimQ
+
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting started:
+    - 프로그래밍 시작하기: overview.md
+    - 소프트웨어 시작하기: software.md
+    #- Publishing your site: publishing-your-site.md
+    #- Customization: customization.md
+    #- Troubleshooting: troubleshooting.md
+    #- Data privacy: data-privacy.md
+    #- Insiders: insiders.md
+    #- License: license.md
+  - FoundationOne CDx:
+    - General information: foundation/general-information.md
+    - Indications for use: foundation/indications-for-use.md
+    - Contraindications: foundation/contraindications.md
+    - Warnings and precautions: foundation/warnings-adn-precautions.md
+    - Device description: foundation/device-description.md
+    - Alternative practices and procedures: foundation/alternative-practices-and-procedures.md
+    - Marketing history: foundation/marketing-history.md
+    - Potential Adverse Effects: foundation/potential-adverse-effects.md
+    - Nonclinical studies: foundation/nonclinical-studies.md
+    - Clinical Study: foundation/clinical-study.md
+    - Panel meeting recommendation: foundation/panel-meeting-recommendation.md
+    - Preclinical and clinical studies: foundation/preclinical-and-clinical-studies.md
+    - CDRH decision: foundation/cdrh-decision.md
+    - Approval Specifications: foundation/approval-specifications.md
+    - Reference: foundation/reference.md
+  - Manual:
+    - ONCOaccuPanel:
+      - Overview: manual/oncoaccupanel/overview.md
+      - 로그인: manual/oncoaccupanel/login.md
+      - 신규분석요청: manual/oncoaccupanel/request.md
+      - 분석 진행 상태: manual/oncoaccupanel/status.md
+      - 분석 결과: manual/oncoaccupanel/result.md
+      - 리포트: manual/oncoaccupanel/report.md
+      - 리뷰: manual/oncoaccupanel/review.md
+      - 부록:
+        - Cancer type: manual/oncoaccupanel/cancer-type.md
+        - Evidence: manual/oncoaccupanel/evidence.md
+        - IGV: manual/oncoaccupanel/igv.md
+        - Fusion database: manual/oncoaccupanel/fusion-database.md
+    - BRCAaccuTest:
+      - 로그인: manual/brcaaccutest/login.md
+      - 신규분석요청: manual/brcaaccutest/request.md
+      - 분석 진행 상태: manual/brcaaccutest/status.md
+      - 분석 결과: manual/brcaaccutest/result.md
+      - 리포트: manual/brcaaccutest/report.md
+  - Changelog:
+    - v1.5.2: changelog.md
+    - Guides:
+      - Upgrading: upgrading.md
+      - Deprecations: deprecations.md
+
+# Google Analytics
+google_analytics:
+  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - auto
